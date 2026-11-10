@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MySchedule</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="MySchedule home">
+          <span class="brand-mark">MS</span>
+          <span>my schedule</span>
+        </a>
+
+        <div class="sidebar-label">Workspace</div>
+        <nav class="nav-group" aria-label="Workspace">
+          <button class="nav-link active" data-nav="dashboard">
+            <span class="nav-icon" aria-hidden="true">⌂</span><span class="nav-label">Overview</span>
+          </button>
+          <button class="nav-link" data-nav="assignments">
+            <span class="nav-icon" aria-hidden="true">▤</span><span class="nav-label">Assignments</span>
+          </button>
+          <button class="nav-link" data-nav="timetable">
+            <span class="nav-icon" aria-hidden="true">▦</span><span class="nav-label">Timetable</span>
+          </button>
+          <button class="nav-link" data-nav="todo">
+            <span class="nav-icon" aria-hidden="true">✓</span><span class="nav-label">To-do list</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-profile">
+          <div class="avatar-badge" aria-hidden="true">NS</div>
+          <div><strong>norn sreylis</strong><span>Student</span></div>
+        </div>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark">MS</span><span>MySchedule</span></div>
+          <div class="topbar-note">PERSONAL STUDY PLANNER</div>
+          <div class="topbar-date" id="topbarDate">YOUR DAILY OVERVIEW</div>
+        </header>
+
+      <main class="content">
+        <section class="tab-panel active" id="tab-dashboard">
+          <div class="dashboard-heading">
+            <div>
+              <p class="eyebrow">A LITTLE MORE FOCUS, EVERY DAY</p>
+              <h1 id="dashboardGreeting">Good afternoon, norn sreylis</h1>
+              <p id="dashboardDate" class="section-subtitle">Wednesday, November 4</p>
+            </div>
+            <div class="date-stamp" aria-hidden="true"><span>YOUR</span><strong>DAY</strong></div>
+          </div>
+
+          <div class="stats-row">
+            <article class="stat-card stat-blue">
+              <div class="stat-top"><span class="stat-label">Classes today</span><span class="stat-icon" aria-hidden="true">◷</span></div>
+              <div id="statClasses" class="stat-value">0</div>
+            </article>
+            <article class="stat-card stat-peach">
+              <div class="stat-top"><span class="stat-label">Open assignments</span><span class="stat-icon" aria-hidden="true">↗</span></div>
+              <div id="statDue" class="stat-value">0</div>
+            </article>
+            <article class="stat-card stat-green">
+              <div class="stat-top"><span class="stat-label">Open to-dos</span><span class="stat-icon" aria-hidden="true">✓</span></div>
+              <div id="statTodos" class="stat-value">0</div>
+            </article>
+          </div>
+
+          <div class="dashboard-layout">
+            <div class="dashboard-main">
+              <article class="info-card schedule-card">
+              <div class="card-header">
+                  <div><p class="eyebrow">YOUR COURSE ACTIVITY</p><h3>Today's classes</h3></div>
+                <a href="#" class="text-link" data-nav="timetable">Timetable</a>
+              </div>
+              <div id="todayClasses" class="list-stack"></div>
+              </article>
+
+              <article class="info-card task-card">
+                <div class="card-header">
+                  <div><p class="eyebrow">KEEP IT MOVING</p><h3>To-do list</h3></div>
+                  <a href="#" class="text-link" data-nav="todo">See all</a>
+                </div>
+                <div id="todoPreview" class="list-stack"></div>
+              </article>
+            </div>
+
+            <aside class="dashboard-aside">
+              <article class="info-card learning-card">
+                <div class="card-header">
+                  <div><p class="eyebrow">COMING UP</p><h3>Next assignments</h3></div>
+                  <a href="#" class="text-link" data-nav="assignments">All</a>
+                </div>
+                <div id="nextAssignments" class="list-stack"></div>
+              </article>
+              <article class="focus-note">
+                <span class="focus-mark" aria-hidden="true">✳</span>
+                <p class="eyebrow">A GOOD RHYTHM</p>
+                <h3>Small steps add up.</h3>
+                <p>Keep your classes and tasks in one calm place.</p>
+              </article>
+            </aside>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-assignments">
+          <div class="panel-header">
+            <h2>Assignments</h2>
+            <button class="primary-btn" id="assignmentTrigger">+ Add assignment</button>
+          </div>
+
+          <div class="form-panel" id="assignmentFormPanel">
+            <form id="assignmentForm" class="stack-form">
+              <div class="input-grid input-grid-2">
+                <label>
+                  <span>Title</span>
+                  <input type="text" name="title" placeholder="Assignment title" required />
+                </label>
+                <label>
+                  <span>Course</span>
+                  <input type="text" name="course" placeholder="Course code" />
+                </label>
+                <label>
+                  <span>Due date</span>
+                  <input type="date" name="due_date" required />
+                </label>
+                <label>
+                  <span>Priority</span>
+                  <select name="priority">
+                    <option value="Low">Low</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="High">High</option>
+                  </select>
+                </label>
+              </div>
+              <div class="button-row">
+                <button type="submit" class="primary-btn">Add assignment</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="assignmentList" class="assignment-list"></div>
+        </section>
+
+        <section class="tab-panel" id="tab-timetable">
+          <div class="panel-header">
+            <h2>Timetable</h2>
+            <button class="primary-btn" id="timetableTrigger">+ Add a class</button>
+          </div>
+
+          <div id="timetableGrid" class="week-grid"></div>
+
+          <div class="form-panel" id="classFormPanel">
+            <h3>Add a class</h3>
+            <form id="scheduleForm" class="stack-form">
+              <div class="input-grid input-grid-4">
+                <label class="full-span">
+                  <span>Class name</span>
+                  <input type="text" name="title" placeholder="Class name" required />
+                </label>
+                <label>
+                  <span>Day</span>
+                  <select name="day">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday" selected>Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Starts</span>
+                  <select name="start_time">
+                    <option value="">Select</option>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Ends</span>
+                  <select name="end_time">
+                    <option value="">Select</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                  </select>
+                </label>
+                <label class="full-span">
+                  <span>Room (optional)</span>
+                  <input type="text" name="room" placeholder="Room number" />
+                </label>
+              </div>
+              <div class="button-row">
+                <button type="submit" class="primary-btn">Add class</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-todo">
+          <div class="panel-header">
+            <h2>To-do list</h2>
+          </div>
+
+          <div class="todo-input-row">
+            <input id="todoInput" type="text" placeholder="Quick add..." />
+            <button class="primary-btn" id="addTodoButton">Add</button>
+          </div>
+
+          <ul id="todoList" class="todo-list"></ul>
+        </section>
+      </main>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

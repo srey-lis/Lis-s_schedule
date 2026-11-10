@@ -1,0 +1,77 @@
+{
+  "schedule": [
+    {
+      "id": 1,
+      "title": "Data Structure",
+      "day": "Wednesday",
+      "start_time": "08:00",
+      "end_time": "09:53",
+      "room": "408"
+    },
+    {
+      "id": 2,
+      "title": "OOP",
+      "day": "Wednesday",
+      "start_time": "14:00",
+      "end_time": "15:00",
+      "room": "309"
+    },
+    {
+      "id": 3,
+      "title": "Computer Network",
+      "day": "Wednesday",
+      "start_time": "16:00",
+      "end_time": "17:51",
+      "room": "308"
+    },
+    {
+      "id": 4,
+      "title": "System Analysis",
+      "day": "Tuesday",
+      "start_time": "13:00",
+      "end_time": "15:00",
+      "room": "304"
+    },
+    {
+      "id": 8,
+      "title": "Network Quiz next week",
+      "day": "Friday",
+      "start_time": "13:00",
+      "end_time": "15:00",
+      "room": "204"
+    }
+  ],
+  "assignments": [
+    {
+      "id": 1,
+      "title": "ASP.NET",
+      "course": "CS100",
+      "due_date": "2026-01-13",
+      "priority": "Medium",
+      "status": "Not started",
+      "notes": ""
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "title": "Flutter",
+      "done": true
+    },
+    {
+      "id": 2,
+      "title": "Server administrator",
+      "done": true
+    },
+    {
+      "id": 3,
+      "title": "Assignment data structure",
+      "done": false
+    },
+    {
+      "id": 4,
+      "title": "Network Quiz next week",
+      "done": false
+    }
+  ]
+}
